@@ -4,6 +4,6 @@ export class CreateGyerekDto{
   @IsString()
   nev: string;
   lakcim: string;
-  alapot: boolean;
+  joVolt: boolean;
   jatek: string;
 }
