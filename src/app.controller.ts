@@ -12,7 +12,7 @@ export class AppController {
   getHello() {
     return {
       message: this.appService.getHello()
-    }
+    };
   }
 
   @Get('hello')
