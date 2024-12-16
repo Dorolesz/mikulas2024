@@ -1,6 +1,6 @@
-import { Body, Controller, Get, Post, Render } from '@nestjs/common';
+import { Body, Controller, Get, Post, Render, ValidationPipe } from '@nestjs/common';
 import { AppService } from './app.service';
-import { CreateGyerekDto } from './gyerekek';
+import { CreateChildDto } from './dto/create-child.dto';
 import { PrismaService } from './prisma.service';
 
 @Controller()
@@ -29,9 +29,9 @@ export class AppController {
   }
 
   @Post('gyerek')
-  ujGyerek(@Body() gyerekAdat: CreateGyerekDto) {
+  ujGyerek(@Body(new ValidationPipe()) gyerekAdat: CreateChildDto) {
     return this.db.gyerek.create({
-      data: gyerekAdat
-    })
+      data: gyerekAdat,
+    });
   }
 }
